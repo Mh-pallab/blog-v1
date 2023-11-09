@@ -6,3 +6,28 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+.sidebar-menu{
+    padding: 0;
+    list-style: none;
+
+    li{
+        display: inline-block;
+        width: 100%;
+        a{
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid #dddddd;
+            font-size: 14px;
+
+            &:hover{
+                background-color: green;
+                font-size: 16px;
+                color: white;
+            }
+        }
+    }
+}
