@@ -24,7 +24,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td><img style="width: 100px;" src="{{asset($item->image)}}" alt="alt"></td>
-                                <td>{{ $item->category->name }}</td>
+                                <td>{{ isset($item->category->name)? $item->category->name: '' }}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ ($item->status == 1)? 'Active' : 'Inactive' }}</td>
