@@ -37,3 +37,27 @@
         }
     }
 }
+
+.card-body{
+
+    .card-title{
+        font-size: 26px;
+        font-weight: 600;
+        color: black;
+    }
+    .card-text{
+        font-size: 14px;
+        font-weight: 400;
+        color: #707070;
+
+        .category{
+            color: black;
+            margin: 0;
+            font-weight: 600;
+        }
+        .text-muted{
+
+        }
+    }
+    
+}

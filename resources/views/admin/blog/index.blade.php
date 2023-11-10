@@ -22,12 +22,12 @@
                             @foreach ($blog_list as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->category_id }}</td>
+                                <td>{{ $item->category->name }}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ ($item->status == 1)? 'Active' : 'Inactive' }}</td>
-                                <td>
-                                    <a href="{{route('blog.edit', $item->id)}}" class="btn btn-success">Edit</a>
+                                <td class="text-center">
+                                    <a href="{{route('blog.edit', $item->id)}}" class="btn btn-success mb-1">Edit</a>
                                     {{-- <a href="{{route('blog.destroy', $item->id)}}" class="btn btn-danger">Delete</a> --}}
                                     <form style="display: inline-block;" action="{{route('blog.destroy', $item->id)}}" method="POST">
                                         @csrf

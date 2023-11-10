@@ -13,7 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog_list = Blog::all(); 
+        $blog_list = Blog::with('category')->latest()->get(); 
         return view('admin.blog.index', compact('blog_list'));
     }
 
