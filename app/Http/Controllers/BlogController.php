@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 
 class BlogController extends Controller
 {
@@ -33,6 +34,7 @@ class BlogController extends Controller
     {
         $requested_data=$request->except('image');
     
+        //add image
         if($request->hasfile('image')){
             $image_file=$request->image;
             $file_name=mt_rand().'.'.time().'.'.$image_file->extension();
@@ -68,7 +70,22 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        $blog->update($request->all());
+        $requested_data=$request->except('image');
+    
+        if($request->hasfile('image')){
+            //remove previous image
+            if($blog->image!=''){
+                File::delete($blog->image);
+            }
+
+            //add new image
+            $image_file=$request->image;
+            $file_name=mt_rand().'.'.time().'.'.$image_file->extension();
+            $image_file->move(public_path('images/blog'),$file_name);
+            $requested_data['image']='images/blog/'.$file_name;
+        }
+
+        $blog->update($requested_data);
         return to_route('blog.index');
     }
 
@@ -77,6 +94,11 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        //delete image
+        if($blog->image!=''){
+            File::delete($blog->image);
+        }
+        //delete data form database
         $blog->delete();
         return to_route('blog.index');
     }
