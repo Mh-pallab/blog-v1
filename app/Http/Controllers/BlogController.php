@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blog_list = Blog::all(); 
+        return view('admin.blog.index', compact('blog_list'));
     }
 
     /**
@@ -20,7 +22,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $category_list = Category::where('status', '1')->get();
+        return view('admin.blog.create', compact('category_list'));
     }
 
     /**
@@ -28,7 +31,8 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Blog::create($request->all());
+        return to_route('blog.index');
     }
 
     /**
@@ -44,7 +48,10 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $data['category_list']= Category::where('status', 1)->get();
+        $data['blog']= $blog;
+        
+        return view('admin.blog.edit', $data);
     }
 
     /**
@@ -52,7 +59,8 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $blog->update($request->all());
+        return to_route('blog.index');
     }
 
     /**
@@ -60,6 +68,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return to_route('blog.index');
     }
 }

@@ -3,15 +3,16 @@
 @section('content')
     <div class="col-md-9">
         <div class="card">
-            <div class="card-header">{{ __('Edit Category') }}
-                <a href="{{ route('category.index') }}" class="btn btn-secondary float-end">Back</a>
+            <div class="card-header">{{ __('Edit Blog') }}
+                <a href="{{ route('blog.index') }}" class="btn btn-secondary float-end">Back</a>
             </div>
 
             <div class="card-body">
-                <form action="{{route('category.update', $category->id)}}" method="POST">
+                
+                <form action="{{route('blog.update', $blog->id)}}" method="POST">
                     @csrf
                     @method('PUT')
-                    @include('admin.category.form')
+                    @include('admin.blog.form')
                 </form>
             </div>
         </div>

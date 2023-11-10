@@ -6,7 +6,7 @@
         <div class="card-body">
             <ul class="sidebar-menu">
                 <li><a class="{{ Route::is('category*')? 'active':''}}" href="{{route('category.index') }}">Category</a></li>
-                <li><a class="{{ Route::is('blog*')? 'active':''}}" href="#">Blog</a></li>
+                <li><a class="{{ Route::is('blog*')? 'active':''}}" href="{{route('blog.index')}}">Blog</a></li>
             </ul>
         </div>
     </div>

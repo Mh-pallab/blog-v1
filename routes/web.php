@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -31,4 +32,5 @@ Route::middleware(['auth','user'])->group(function(){
 Route::middleware(['auth','admin'])->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/category', CategoryController::class);
+    Route::resource('/blog', BlogController::class);
 });

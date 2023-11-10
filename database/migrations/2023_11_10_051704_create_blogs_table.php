@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('category_id');
             $table->string('title');
             $table->longText('description');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

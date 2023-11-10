@@ -3,14 +3,14 @@
 @section('content')
     <div class="col-md-9">
         <div class="card">
-            <div class="card-header">{{ __('Add Category') }}
-                <a href="{{ route('category.index') }}" class="btn btn-secondary float-end">Back</a>
+            <div class="card-header">{{ __('Add Blog') }}
+                <a href="{{ route('blog.index') }}" class="btn btn-secondary float-end">Back</a>
             </div>
 
             <div class="card-body">
-                <form action="{{route('category.store')}}" method="POST">
+                <form action="{{route('blog.store')}}" method="POST">
                     @csrf
-                    @include('admin.category.form')
+                    @include('admin.blog.form')
                 </form>
             </div>
         </div>
