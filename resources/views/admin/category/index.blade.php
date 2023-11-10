@@ -23,8 +23,13 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ ($item->status == 1)? 'Active' : 'Inactive' }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-success">Edit</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="{{route('category.edit', $item->id)}}" class="btn btn-success">Edit</a>
+                                    {{-- <a href="{{route('category.destroy', $item->id)}}" class="btn btn-danger">Delete</a> --}}
+                                    <form style="display: inline-block;" action="{{route('category.destroy', $item->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
