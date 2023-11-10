@@ -31,7 +31,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        Blog::create($request->all());
+        $requested_data=$request->except('image');
+    
+        if($request->hasfile('image')){
+            $image_file=$request->image;
+            $file_name=mt_rand().'.'.time().'.'.$image_file->extension();
+            $image_file->move(public_path('images/blog'),$file_name);
+            $requested_data['image']='images/blog/'.$file_name;
+        }
+
+        Blog::create($requested_data);
         return to_route('blog.index');
     }
 

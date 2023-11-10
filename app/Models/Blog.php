@@ -13,7 +13,8 @@ class Blog extends Model
         'category_id', 
         'title', 
         'description', 
-        'status'
+        'status',
+        'image'
     ];
 
     public function category(){

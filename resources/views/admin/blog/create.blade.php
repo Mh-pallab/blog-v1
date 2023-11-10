@@ -8,7 +8,7 @@
             </div>
 
             <div class="card-body">
-                <form action="{{route('blog.store')}}" method="POST">
+                <form action="{{route('blog.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @include('admin.blog.form')
                 </form>

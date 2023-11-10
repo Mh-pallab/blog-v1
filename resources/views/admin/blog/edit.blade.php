@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 
-                <form action="{{route('blog.update', $blog->id)}}" method="POST">
+                <form action="{{route('blog.update', $blog->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     @include('admin.blog.form')

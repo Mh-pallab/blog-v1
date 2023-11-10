@@ -21,6 +21,11 @@
 </div>
 
 <div class="form-group mb-3">
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image">
+</div>
+
+<div class="form-group mb-3">
     <label for="status">Status</label>
     <select name="status" id="status" class="form-control">
         <option value="1" {{ isset($blog) && $blog->status == 1 ? 'selected' : '' }}>Active</option>

@@ -12,6 +12,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <th>SL.</th>
+                            <th>Image</th>
                             <th>Category</th>
                             <th>Title</th>
                             <th>Description</th>
@@ -22,6 +23,7 @@
                             @foreach ($blog_list as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td><img style="width: 100px;" src="{{asset($item->image)}}" alt="alt"></td>
                                 <td>{{ $item->category->name }}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->description }}</td>
