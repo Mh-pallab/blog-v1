@@ -38,7 +38,7 @@
     }
 }
 
-.card-body{
+.cardHome{
 
     .card-title{
         font-size: 26px;
@@ -59,14 +59,42 @@
 
         }
     }
-    
+}
+
+.cardReadMore {
+   .card-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: black;
+   }
+
+   .card-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #4b4b4b;
+
+      .category {
+         color: black;
+         margin: 0;
+         font-weight: 600;
+      }
+      .text-muted {}
+   }
 }
 
 .img{
-    height: 100%;
+    height: 300px;
     img{
         height: 100%; 
         width: 100%;
         object-fit: cover;
     }
+}
+
+.card{
+   padding: 0;
+}
+
+.readMoreImg{
+   width: 100%;
 }

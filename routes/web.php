@@ -19,18 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
 });
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth','user'])->group(function(){
-    Route::get('/index', [UserController::class, 'index'])->name('index');
+Route::middleware(['auth', 'user'])->group(function () {
+   Route::get('/index', [UserController::class, 'index'])->name('index');
+   Route::get('/readmore/{blog}', [UserController::class, 'readmore'])->name('readmore');
 });
 
-Route::middleware(['auth','admin'])->group(function(){
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::resource('/category', CategoryController::class);
-    Route::resource('/blog', BlogController::class);
+Route::middleware(['auth', 'admin'])->group(function () {
+   Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+   Route::resource('/category', CategoryController::class);
+   Route::resource('/blog', BlogController::class);
 });
